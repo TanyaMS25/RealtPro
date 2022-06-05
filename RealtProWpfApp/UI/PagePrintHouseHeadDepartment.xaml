@@ -1,0 +1,56 @@
+﻿<Page x:Class="RealtProWpfApp.UI.PagePrintHouseHeadDepartment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RealtProWpfApp.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PagePrintHouseHeadDepartment" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Страница руководителя отдела продаж"></TextBlock>
+
+        <WrapPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Поиск по домам:" Margin="10"></TextBlock>
+                <TextBox ToolTip="Поиск по району, улице, дому, ФИ риелтора" x:Name="tbSearch" TextChanged="tbSearch_TextChanged"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите риелтора:"></TextBlock>
+                <ComboBox Width="300" Name="comboRealtor" SelectionChanged="comboRealtor_SelectionChanged"
+                          DisplayMemberPath="FullName"></ComboBox>
+            </StackPanel>
+        </WrapPanel>
+
+        <DocumentViewer x:Name="documentViewer" Grid.Row="2">
+            <FixedDocument>
+                <PageContent>
+                    <FixedPage>
+                        <Grid  Margin="20" Background="#dedcd8" Width="770" Height="1010">
+                            <DataGrid x:Name="dgHouse" AutoGenerateColumns="False" IsReadOnly="True" Width="760" Height="1000">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Дом" Binding="{Binding District}" Width="*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="" Binding="{Binding Street}" Width="*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="" Binding="{Binding House1}" Width="*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Риелтор" Binding="{Binding Realtor.LastName}" Width="*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="" Binding="{Binding Realtor.FirstName}" Width="*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Статус" Binding="{Binding ObjectStatu.Name}" Width="*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Дата начала" Binding="{Binding StartDate}" Width="*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Дата окончания" Binding="{Binding EndDateOfWork}" Width="*"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </FixedPage>
+                </PageContent>
+            </FixedDocument>
+        </DocumentViewer>
+    </Grid>
+</Page>

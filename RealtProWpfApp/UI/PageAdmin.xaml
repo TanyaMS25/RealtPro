@@ -1,0 +1,46 @@
+﻿<Page x:Class="RealtProWpfApp.UI.PageAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RealtProWpfApp.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAdmin" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Страница администратора" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <WrapPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Поиск по логину:" VerticalAlignment="Center" Margin="10"></TextBlock>
+                <TextBox x:Name="tbSearch" TextChanged="tbSearch_TextChanged"></TextBox>
+            </StackPanel>
+        </WrapPanel>
+        <Image Source="/Resources/admin.jpg" HorizontalAlignment="Right" Grid.RowSpan="2" Margin="0 0 15 0"></Image>
+        <TextBlock Grid.Row="2" Name="tbInfoDG"></TextBlock>
+        <DataGrid x:Name="dgAdmin" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Последний вход" Binding="{Binding LastEnter}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Активация" Binding="{Binding Activate.Name}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="btnEdit" Click="btnEdit_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить" Name="btnAdd" Click="btnAdd_Click"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3"></Button>
+        <Button Content="Удалить" Name="btnDelete" Click="btnDelete_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3"></Button>
+    </Grid>
+</Page>

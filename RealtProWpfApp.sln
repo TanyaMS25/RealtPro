@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealtProWpfApp", "RealtProWpfApp\RealtProWpfApp.csproj", "{074BDCB7-CF89-4E60-9EE2-4D7DE9A87C7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryCalculation", "ClassLibraryCalculation\ClassLibraryCalculation.csproj", "{BFA837D2-079E-4DE4-88B2-298D864D6C6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryPasswordValidation", "ClassLibraryPasswordValidation\ClassLibraryPasswordValidation.csproj", "{B5D2D9F3-A359-42CD-BF35-999E9D60254C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryPasswordValidationTest", "ClassLibraryPasswordValidationTest\ClassLibraryPasswordValidationTest.csproj", "{08F0EB12-C8DF-4E4C-8B95-585042F6E8F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryCalculationTest", "ClassLibraryCalculationTest\ClassLibraryCalculationTest.csproj", "{C952E243-D9CF-40ED-AA46-E1FB6002CD70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{074BDCB7-CF89-4E60-9EE2-4D7DE9A87C7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{074BDCB7-CF89-4E60-9EE2-4D7DE9A87C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{074BDCB7-CF89-4E60-9EE2-4D7DE9A87C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{074BDCB7-CF89-4E60-9EE2-4D7DE9A87C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFA837D2-079E-4DE4-88B2-298D864D6C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFA837D2-079E-4DE4-88B2-298D864D6C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFA837D2-079E-4DE4-88B2-298D864D6C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFA837D2-079E-4DE4-88B2-298D864D6C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5D2D9F3-A359-42CD-BF35-999E9D60254C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D2D9F3-A359-42CD-BF35-999E9D60254C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D2D9F3-A359-42CD-BF35-999E9D60254C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D2D9F3-A359-42CD-BF35-999E9D60254C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F0EB12-C8DF-4E4C-8B95-585042F6E8F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F0EB12-C8DF-4E4C-8B95-585042F6E8F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F0EB12-C8DF-4E4C-8B95-585042F6E8F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F0EB12-C8DF-4E4C-8B95-585042F6E8F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C952E243-D9CF-40ED-AA46-E1FB6002CD70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C952E243-D9CF-40ED-AA46-E1FB6002CD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C952E243-D9CF-40ED-AA46-E1FB6002CD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C952E243-D9CF-40ED-AA46-E1FB6002CD70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0323DC80-4C3C-461E-BC15-FC53A14630ED}
+	EndGlobalSection
+EndGlobal

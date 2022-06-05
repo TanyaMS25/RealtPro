@@ -1,0 +1,49 @@
+﻿<Window x:Class="RealtProWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealtProWpfApp"
+        mc:Ignorable="d"
+        Title="Агентство недвижимости" Height="600" Width="1100" Icon="/Resources/logo.ico" MinWidth="1100" MinHeight="900" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="135"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Resources/realt.jpg" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10"></Image>
+
+        <Grid Grid.ColumnSpan="2" Background="#FFF1EFEE" Panel.ZIndex="-2"></Grid>
+        <Grid Grid.Row="1" Background="#FFF1EFEE"></Grid>
+        <Grid Grid.Row="2" Background="#FFF1EFEE" Grid.ColumnSpan="2"></Grid>
+        
+        <Frame Name="MainFrame" Grid.Column="1" Grid.Row="1" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
+        
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+            <Button Name="btnPrintApartHeadDep" Click="btnPrintApartHeadDep_Click" Visibility="Hidden">Отчет квартир</Button>
+            <Button Name="btnPrintHouseHeadDep" Click="btnPrintHouseHeadDep_Click" Visibility="Hidden">Отчет домов</Button>
+
+            <Button Name="btnAuthHistory" Click="btnAuthHistory_Click" Visibility="Hidden">История авторизации</Button>
+
+            <Button Name="btnMainRealtor" Click="btnMainRealtor_Click" Visibility="Hidden">Главная</Button>
+            <Button Name="btnHouse" Click="btnHouse_Click" Visibility="Hidden">Дома</Button>
+            <Button Name="btnPrintHouse" Click="btnPrintHouse_Click" Visibility="Hidden">Отчет домов</Button>
+            <Button Name="btnApartment" Click="btnApartment_Click" Visibility="Hidden">Квартиры</Button>
+            <Button Name="btnPrintApartment" Click="btnPrintApartment_Click" Visibility="Hidden">Отчет квартир</Button>
+            <Button Name="btnClient" Click="btnClient_Click" Visibility="Hidden">Клиенты</Button>
+            <Button Name="btnPrintClient" Click="btnPrintClient_Click" Visibility="Hidden">Отчет клиентов</Button>
+            
+            <Button Name="btnUserData" Click="btnUserData_Click" Visibility="Hidden">Данные аккаунта</Button>
+
+            <Button Name="btnBack" Click="btnBack_Click">Назад</Button>
+            <Button Name="btnExit" Click="btnExit_Click" Background="#282c6b">Выход</Button>
+        </StackPanel>
+        
+        <TextBlock x:Name="tBlockUserInfo" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#a3ac92"></TextBlock>
+    </Grid>
+</Window>

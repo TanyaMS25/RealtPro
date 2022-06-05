@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fa864da18e74f6a8201213498508ff1" Name="Diagram1">
+        <EntityTypeShape EntityType="RealtProModel.AdditionalImageOfApartment" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.AdditionalImageOfHouse" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Admin" Width="1.5" PointX="3.75" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.AdOwner" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Apartment" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.AuthHistory" Width="1.5" PointX="5" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Bathroom" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Client" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Developer" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.GasSupply" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.HeadOfSalesDepartment" Width="1.5" PointX="3.75" PointY="39" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Heating" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.House" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Layout" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Market" Width="1.5" PointX="0.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Material" Width="1.5" PointX="0.75" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.ObjectStatu" Width="1.5" PointX="0.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Realtor" Width="1.5" PointX="0.75" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Role" Width="1.5" PointX="1.5" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Sewerage" Width="1.5" PointX="3.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.Type" Width="1.5" PointX="0.75" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.User" Width="1.5" PointX="2.375" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtProModel.WaterSupply" Width="1.5" PointX="3.75" PointY="22.5" IsExpanded="true" />
+        <AssociationConnector Association="RealtProModel.FK_AdditionalImageOfApartments_Apartment" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_AdditionalImageOfHouse_House" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Admin_User" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_AdOwner" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_AdOwner" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Bathroom" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Developer" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Layout" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Market" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_ObjectStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Realtor" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_AuthHistory_User" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Bathroom" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Developer" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_GasSupply" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_HeadOfSalesDepartment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Heating" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Market" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_ObjectStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Realtor" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Sewerage" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_Type1" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_House_WaterSupply" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_Realtor_User" ManuallyRouted="false" />
+        <AssociationConnector Association="RealtProModel.FK_User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RealtProModel.Level" Width="1.5" PointX="0.75" PointY="46.875" />
+        <EntityTypeShape EntityType="RealtProModel.Money" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="RealtProModel.Office" Width="1.5" PointX="6.375" PointY="0.875" />
+        <AssociationConnector Association="RealtProModel.FK_Client_Money" />
+        <AssociationConnector Association="RealtProModel.FK_Client_ObjectStatus" />
+        <AssociationConnector Association="RealtProModel.FK_Client_Realtor" />
+        <AssociationConnector Association="RealtProModel.FK_Client_Type" />
+        <AssociationConnector Association="RealtProModel.FK_Realtor_Level" />
+        <AssociationConnector Association="RealtProModel.FK_Realtor_Office" />
+        <EntityTypeShape EntityType="RealtProModel.Balcony" Width="1.5" PointX="0.75" PointY="3.875" />
+        <AssociationConnector Association="RealtProModel.FK_Apartment_Balcony" />
+        <AssociationConnector Association="RealtProModel.FK_Office_HeadOfSalesDepartment" />
+        <EntityTypeShape EntityType="RealtProModel.Activate" Width="1.5" PointX="0.75" PointY="37.75" />
+        <AssociationConnector Association="RealtProModel.FK_User_Activate" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -21,6 +21,11 @@
                 <ComboBox Name="comboType" SelectionChanged="comboType_SelectionChanged"
                           DisplayMemberPath="Name"></ComboBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите статус:"></TextBlock>
+                <ComboBox Name="comboStatus" SelectionChanged="comboStatus_SelectionChanged"
+                          DisplayMemberPath="Name"></ComboBox>
+            </StackPanel>
         </WrapPanel>
         <DocumentViewer x:Name="documentViewer" Grid.Row="2">
             <FixedDocument>

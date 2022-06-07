@@ -22,6 +22,11 @@
                           DisplayMemberPath="Name"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите статус:"></TextBlock>
+                <ComboBox Name="comboStatus" SelectionChanged="comboStatus_SelectionChanged"
+                          DisplayMemberPath="Name"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Выберите риелтора:"></TextBlock>
                 <ComboBox Width="300" Name="comboRealtor" SelectionChanged="comboRealtor_SelectionChanged"
                           DisplayMemberPath="FullName"></ComboBox>

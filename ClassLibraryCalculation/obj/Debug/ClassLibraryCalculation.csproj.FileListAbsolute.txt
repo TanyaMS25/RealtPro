@@ -1,0 +1,12 @@
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\REALTproWpfApp\ClassLibraryCalculation\bin\Debug\ClassLibraryCalculation.dll
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\REALTproWpfApp\ClassLibraryCalculation\bin\Debug\ClassLibraryCalculation.pdb
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\REALTproWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.csproj.AssemblyReference.cache
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\REALTproWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.csproj.CoreCompileInputs.cache
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\REALTproWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.dll
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\REALTproWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.pdb
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\RealtProWpfApp4\RealtProWpfApp\ClassLibraryCalculation\bin\Debug\ClassLibraryCalculation.dll
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\RealtProWpfApp4\RealtProWpfApp\ClassLibraryCalculation\bin\Debug\ClassLibraryCalculation.pdb
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\RealtProWpfApp4\RealtProWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.csproj.AssemblyReference.cache
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\RealtProWpfApp4\RealtProWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.csproj.CoreCompileInputs.cache
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\RealtProWpfApp4\RealtProWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.dll
+D:\КОЛЛЕДЖ\ДИПЛОМ\Приложение\RealtProWpfApp4\RealtProWpfApp\ClassLibraryCalculation\obj\Debug\ClassLibraryCalculation.pdb

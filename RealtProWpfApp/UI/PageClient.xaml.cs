@@ -29,6 +29,15 @@ namespace RealtProWpfApp.UI
             {
                 Name = "Все типы"
             });
+
+            var allStatus = App.DateBase.ObjectStatus.ToList();
+            allStatus.Insert(0, new Entities.ObjectStatu
+            {
+                Name = "Все статусы"
+            });
+            comboStatus.ItemsSource = allStatus;
+
+            comboStatus.SelectedIndex = 0;
             comboType.ItemsSource = allTypes;
             comboType.SelectedIndex = 0;
         }
@@ -37,6 +46,10 @@ namespace RealtProWpfApp.UI
             var currentClient = App.DateBase.Clients.Where(p => p.RealtorId == Models.Manager.realtor.Id).ToList();
             if (comboType.SelectedIndex > 0)
                 currentClient = currentClient.Where(p => p.Type.Name.Contains((comboType.SelectedItem as Entities.Type).Name)).ToList();
+
+            if (comboStatus.SelectedIndex > 0)
+                currentClient = currentClient.Where(p => p.ObjectStatu.Name.Contains((comboStatus.SelectedItem as Entities.ObjectStatu).Name)).ToList();
+
             if (!string.IsNullOrEmpty(tbSearch.Text))
             {
                 try
@@ -134,6 +147,11 @@ namespace RealtProWpfApp.UI
         }
 
         private void comboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateClient();
+        }
+
+        private void comboStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateClient();
         }

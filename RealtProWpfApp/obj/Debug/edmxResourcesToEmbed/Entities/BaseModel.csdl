@@ -1,0 +1,1041 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RealtProModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdditionalImageOfApartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApartmentId" Type="Int32" Nullable="false" />
+    <Property Name="Image1" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image2" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image4" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image5" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Apartment" Relationship="Self.FK_AdditionalImageOfApartments_Apartment" FromRole="AdditionalImageOfApartments" ToRole="Apartment" />
+  </EntityType>
+  <EntityType Name="AdditionalImageOfHouse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HouseId" Type="Int32" Nullable="false" />
+    <Property Name="Image1" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image2" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image4" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image5" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="House" Relationship="Self.FK_AdditionalImageOfHouse_House" FromRole="AdditionalImageOfHouse" ToRole="House" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Admin_User" FromRole="Admin" ToRole="User" />
+  </EntityType>
+  <EntityType Name="AdOwner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_AdOwner" FromRole="AdOwner" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_AdOwner" FromRole="AdOwner" ToRole="House" />
+  </EntityType>
+  <EntityType Name="Apartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="House" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Floor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NumberOfFloors" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TotalArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LivingSpace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberOfRooms" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="BathroomId" Type="Int32" Nullable="false" />
+    <Property Name="MarketId" Type="Int32" Nullable="false" />
+    <Property Name="YearOfConstruction" Type="Double" Nullable="false" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="LayoutId" Type="Int32" Nullable="false" />
+    <Property Name="AdOwnerId" Type="Int32" Nullable="false" />
+    <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="RealtorId" Type="Int32" Nullable="false" />
+    <Property Name="DeveloperId" Type="Int32" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDateOfWork" Type="DateTime" Precision="0" />
+    <Property Name="ObjectStatusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AdditionalImageOfApartments" Relationship="Self.FK_AdditionalImageOfApartments_Apartment" FromRole="Apartment" ToRole="AdditionalImageOfApartments" />
+    <NavigationProperty Name="AdOwner" Relationship="Self.FK_Apartment_AdOwner" FromRole="Apartment" ToRole="AdOwner" />
+    <NavigationProperty Name="Bathroom" Relationship="Self.FK_Apartment_Bathroom" FromRole="Apartment" ToRole="Bathroom" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Apartment_Client" FromRole="Apartment" ToRole="Client" />
+    <NavigationProperty Name="Developer" Relationship="Self.FK_Apartment_Developer" FromRole="Apartment" ToRole="Developer" />
+    <NavigationProperty Name="Layout" Relationship="Self.FK_Apartment_Layout" FromRole="Apartment" ToRole="Layout" />
+    <NavigationProperty Name="Market" Relationship="Self.FK_Apartment_Market" FromRole="Apartment" ToRole="Market" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Apartment_Material" FromRole="Apartment" ToRole="Material" />
+    <NavigationProperty Name="ObjectStatu" Relationship="Self.FK_Apartment_ObjectStatus" FromRole="Apartment" ToRole="ObjectStatus" />
+    <NavigationProperty Name="Realtor" Relationship="Self.FK_Apartment_Realtor" FromRole="Apartment" ToRole="Realtor" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_Apartment_Type" FromRole="Apartment" ToRole="Type" />
+    <Property Name="AgentCommission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BalconyId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Balcony1" Relationship="RealtProModel.FK_Apartment_Balcony" FromRole="Apartment" ToRole="Balcony" />
+  </EntityType>
+  <EntityType Name="AuthHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_AuthHistory_User" FromRole="AuthHistory" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Bathroom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Bathroom" FromRole="Bathroom" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Bathroom" FromRole="Bathroom" ToRole="House" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Client" FromRole="Client" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Client" FromRole="Client" ToRole="House" />
+    <Property Name="ObjectStatusId" Type="Int32" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="MoneyId" Type="Int32" Nullable="false" />
+    <Property Name="RealtorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Money" Relationship="RealtProModel.FK_Client_Money" FromRole="Client" ToRole="Money" />
+    <NavigationProperty Name="ObjectStatu" Relationship="RealtProModel.FK_Client_ObjectStatus" FromRole="Client" ToRole="ObjectStatu" />
+    <NavigationProperty Name="Realtor" Relationship="RealtProModel.FK_Client_Realtor" FromRole="Client" ToRole="Realtor" />
+    <NavigationProperty Name="Type" Relationship="RealtProModel.FK_Client_Type" FromRole="Client" ToRole="Type" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDateOfWork" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Developer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Developer" FromRole="Developer" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Developer" FromRole="Developer" ToRole="House" />
+  </EntityType>
+  <EntityType Name="GasSupply">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_GasSupply" FromRole="GasSupply" ToRole="House" />
+  </EntityType>
+  <EntityType Name="HeadOfSalesDepartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_HeadOfSalesDepartment_User" FromRole="HeadOfSalesDepartment" ToRole="User" />
+    <NavigationProperty Name="Offices" Relationship="RealtProModel.FK_Office_HeadOfSalesDepartment" FromRole="HeadOfSalesDepartment" ToRole="Office" />
+  </EntityType>
+  <EntityType Name="Heating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Heating" FromRole="Heating" ToRole="House" />
+  </EntityType>
+  <EntityType Name="House">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="House1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NumberOfFloors" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TotalArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LivingSpace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberOfRooms" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="BathroomId" Type="Int32" Nullable="false" />
+    <Property Name="MarketId" Type="Int32" Nullable="false" />
+    <Property Name="YearOfConstruction" Type="Double" Nullable="false" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="AdOwnerId" Type="Int32" Nullable="false" />
+    <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="KitchenArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LandArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SewerageId" Type="Int32" Nullable="false" />
+    <Property Name="WaterSupplyId" Type="Int32" Nullable="false" />
+    <Property Name="HeatingId" Type="Int32" Nullable="false" />
+    <Property Name="GasSupplyId" Type="Int32" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="RealtorId" Type="Int32" Nullable="false" />
+    <Property Name="DeveloperId" Type="Int32" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDateOfWork" Type="DateTime" Precision="0" />
+    <Property Name="ObjectStatusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AdditionalImageOfHouses" Relationship="Self.FK_AdditionalImageOfHouse_House" FromRole="House" ToRole="AdditionalImageOfHouse" />
+    <NavigationProperty Name="AdOwner" Relationship="Self.FK_House_AdOwner" FromRole="House" ToRole="AdOwner" />
+    <NavigationProperty Name="Bathroom" Relationship="Self.FK_House_Bathroom" FromRole="House" ToRole="Bathroom" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_House_Client" FromRole="House" ToRole="Client" />
+    <NavigationProperty Name="Developer" Relationship="Self.FK_House_Developer" FromRole="House" ToRole="Developer" />
+    <NavigationProperty Name="GasSupply" Relationship="Self.FK_House_GasSupply" FromRole="House" ToRole="GasSupply" />
+    <NavigationProperty Name="Heating" Relationship="Self.FK_House_Heating" FromRole="House" ToRole="Heating" />
+    <NavigationProperty Name="Market" Relationship="Self.FK_House_Market" FromRole="House" ToRole="Market" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_House_Material" FromRole="House" ToRole="Material" />
+    <NavigationProperty Name="ObjectStatu" Relationship="Self.FK_House_ObjectStatus" FromRole="House" ToRole="ObjectStatus" />
+    <NavigationProperty Name="Realtor" Relationship="Self.FK_House_Realtor" FromRole="House" ToRole="Realtor" />
+    <NavigationProperty Name="Sewerage" Relationship="Self.FK_House_Sewerage" FromRole="House" ToRole="Sewerage" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_House_Type1" FromRole="House" ToRole="Type" />
+    <NavigationProperty Name="WaterSupply" Relationship="Self.FK_House_WaterSupply" FromRole="House" ToRole="WaterSupply" />
+    <Property Name="AgentCommission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Layout">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Layout" FromRole="Layout" ToRole="Apartment" />
+  </EntityType>
+  <EntityType Name="Market">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Market" FromRole="Market" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Market" FromRole="Market" ToRole="House" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Material" FromRole="Material" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Material" FromRole="Material" ToRole="House" />
+  </EntityType>
+  <EntityType Name="ObjectStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_ObjectStatus" FromRole="ObjectStatus" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_ObjectStatus" FromRole="ObjectStatus" ToRole="House" />
+    <NavigationProperty Name="Clients" Relationship="RealtProModel.FK_Client_ObjectStatus" FromRole="ObjectStatu" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Realtor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Realtor" FromRole="Realtor" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Realtor" FromRole="Realtor" ToRole="House" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Realtor_User" FromRole="Realtor" ToRole="User" />
+    <Property Name="OfficeId" Type="Int32" Nullable="false" />
+    <Property Name="LevelId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="RealtProModel.FK_Client_Realtor" FromRole="Realtor" ToRole="Client" />
+    <NavigationProperty Name="Level" Relationship="RealtProModel.FK_Realtor_Level" FromRole="Realtor" ToRole="Level" />
+    <NavigationProperty Name="Office" Relationship="RealtProModel.FK_Realtor_Office" FromRole="Realtor" ToRole="Office" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDateOfWork" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Sewerage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Sewerage" FromRole="Sewerage" ToRole="House" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_Type" FromRole="Type" ToRole="Apartment" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_Type1" FromRole="Type" ToRole="House" />
+    <NavigationProperty Name="Clients" Relationship="RealtProModel.FK_Client_Type" FromRole="Type" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEnter" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Admins" Relationship="Self.FK_Admin_User" FromRole="User" ToRole="Admin" />
+    <NavigationProperty Name="AuthHistories" Relationship="Self.FK_AuthHistory_User" FromRole="User" ToRole="AuthHistory" />
+    <NavigationProperty Name="HeadOfSalesDepartments" Relationship="Self.FK_HeadOfSalesDepartment_User" FromRole="User" ToRole="HeadOfSalesDepartment" />
+    <NavigationProperty Name="Realtors" Relationship="Self.FK_Realtor_User" FromRole="User" ToRole="Realtor" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <Property Name="ActivateId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Activate" Relationship="RealtProModel.FK_User_Activate" FromRole="User" ToRole="Activate" />
+  </EntityType>
+  <EntityType Name="WaterSupply">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Houses" Relationship="Self.FK_House_WaterSupply" FromRole="WaterSupply" ToRole="House" />
+  </EntityType>
+  <Association Name="FK_AdditionalImageOfApartments_Apartment">
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="1" />
+    <End Role="AdditionalImageOfApartments" Type="Self.AdditionalImageOfApartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Apartment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdditionalImageOfApartments">
+        <PropertyRef Name="ApartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdditionalImageOfHouse_House">
+    <End Role="House" Type="Self.House" Multiplicity="1" />
+    <End Role="AdditionalImageOfHouse" Type="Self.AdditionalImageOfHouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="House">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdditionalImageOfHouse">
+        <PropertyRef Name="HouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_AdOwner">
+    <End Role="AdOwner" Type="Self.AdOwner" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdOwner">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="AdOwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_AdOwner">
+    <End Role="AdOwner" Type="Self.AdOwner" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdOwner">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="AdOwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Bathroom">
+    <End Role="Bathroom" Type="Self.Bathroom" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bathroom">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="BathroomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Developer">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="0..1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="DeveloperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Layout">
+    <End Role="Layout" Type="Self.Layout" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Layout">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="LayoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Market">
+    <End Role="Market" Type="Self.Market" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Market">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="MarketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_ObjectStatus">
+    <End Role="ObjectStatus" Type="Self.ObjectStatu" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="ObjectStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Realtor">
+    <End Role="Realtor" Type="Self.Realtor" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Realtor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="RealtorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apartment_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuthHistory_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="AuthHistory" Type="Self.AuthHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Bathroom">
+    <End Role="Bathroom" Type="Self.Bathroom" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bathroom">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="BathroomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Developer">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="0..1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="DeveloperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_GasSupply">
+    <End Role="GasSupply" Type="Self.GasSupply" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GasSupply">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="GasSupplyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadOfSalesDepartment_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="HeadOfSalesDepartment" Type="Self.HeadOfSalesDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HeadOfSalesDepartment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Heating">
+    <End Role="Heating" Type="Self.Heating" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Heating">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="HeatingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Market">
+    <End Role="Market" Type="Self.Market" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Market">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="MarketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_ObjectStatus">
+    <End Role="ObjectStatus" Type="Self.ObjectStatu" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="ObjectStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Realtor">
+    <End Role="Realtor" Type="Self.Realtor" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Realtor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="RealtorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Sewerage">
+    <End Role="Sewerage" Type="Self.Sewerage" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sewerage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="SewerageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_Type1">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_House_WaterSupply">
+    <End Role="WaterSupply" Type="Self.WaterSupply" Multiplicity="1" />
+    <End Role="House" Type="Self.House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WaterSupply">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="House">
+        <PropertyRef Name="WaterSupplyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Realtor_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Realtor" Type="Self.Realtor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Realtor">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RealtProEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdditionalImageOfApartments" EntityType="Self.AdditionalImageOfApartment" />
+    <EntitySet Name="AdditionalImageOfHouses" EntityType="Self.AdditionalImageOfHouse" />
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="AdOwners" EntityType="Self.AdOwner" />
+    <EntitySet Name="Apartments" EntityType="Self.Apartment" />
+    <EntitySet Name="AuthHistories" EntityType="Self.AuthHistory" />
+    <EntitySet Name="Bathrooms" EntityType="Self.Bathroom" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Developers" EntityType="Self.Developer" />
+    <EntitySet Name="GasSupplies" EntityType="Self.GasSupply" />
+    <EntitySet Name="HeadOfSalesDepartments" EntityType="Self.HeadOfSalesDepartment" />
+    <EntitySet Name="Heatings" EntityType="Self.Heating" />
+    <EntitySet Name="Houses" EntityType="Self.House" />
+    <EntitySet Name="Layouts" EntityType="Self.Layout" />
+    <EntitySet Name="Markets" EntityType="Self.Market" />
+    <EntitySet Name="Materials" EntityType="Self.Material" />
+    <EntitySet Name="ObjectStatus" EntityType="Self.ObjectStatu" />
+    <EntitySet Name="Realtors" EntityType="Self.Realtor" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Sewerages" EntityType="Self.Sewerage" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Types" EntityType="Self.Type" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="WaterSupplies" EntityType="Self.WaterSupply" />
+    <AssociationSet Name="FK_AdditionalImageOfApartments_Apartment" Association="Self.FK_AdditionalImageOfApartments_Apartment">
+      <End Role="Apartment" EntitySet="Apartments" />
+      <End Role="AdditionalImageOfApartments" EntitySet="AdditionalImageOfApartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdditionalImageOfHouse_House" Association="Self.FK_AdditionalImageOfHouse_House">
+      <End Role="House" EntitySet="Houses" />
+      <End Role="AdditionalImageOfHouse" EntitySet="AdditionalImageOfHouses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_User" Association="Self.FK_Admin_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Admin" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_AdOwner" Association="Self.FK_Apartment_AdOwner">
+      <End Role="AdOwner" EntitySet="AdOwners" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_AdOwner" Association="Self.FK_House_AdOwner">
+      <End Role="AdOwner" EntitySet="AdOwners" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Bathroom" Association="Self.FK_Apartment_Bathroom">
+      <End Role="Bathroom" EntitySet="Bathrooms" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Client" Association="Self.FK_Apartment_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Developer" Association="Self.FK_Apartment_Developer">
+      <End Role="Developer" EntitySet="Developers" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Layout" Association="Self.FK_Apartment_Layout">
+      <End Role="Layout" EntitySet="Layouts" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Market" Association="Self.FK_Apartment_Market">
+      <End Role="Market" EntitySet="Markets" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Material" Association="Self.FK_Apartment_Material">
+      <End Role="Material" EntitySet="Materials" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_ObjectStatus" Association="Self.FK_Apartment_ObjectStatus">
+      <End Role="ObjectStatus" EntitySet="ObjectStatus" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Realtor" Association="Self.FK_Apartment_Realtor">
+      <End Role="Realtor" EntitySet="Realtors" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apartment_Type" Association="Self.FK_Apartment_Type">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuthHistory_User" Association="Self.FK_AuthHistory_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="AuthHistory" EntitySet="AuthHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Bathroom" Association="Self.FK_House_Bathroom">
+      <End Role="Bathroom" EntitySet="Bathrooms" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Client" Association="Self.FK_House_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Developer" Association="Self.FK_House_Developer">
+      <End Role="Developer" EntitySet="Developers" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_GasSupply" Association="Self.FK_House_GasSupply">
+      <End Role="GasSupply" EntitySet="GasSupplies" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadOfSalesDepartment_User" Association="Self.FK_HeadOfSalesDepartment_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="HeadOfSalesDepartment" EntitySet="HeadOfSalesDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Heating" Association="Self.FK_House_Heating">
+      <End Role="Heating" EntitySet="Heatings" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Market" Association="Self.FK_House_Market">
+      <End Role="Market" EntitySet="Markets" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Material" Association="Self.FK_House_Material">
+      <End Role="Material" EntitySet="Materials" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_ObjectStatus" Association="Self.FK_House_ObjectStatus">
+      <End Role="ObjectStatus" EntitySet="ObjectStatus" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Realtor" Association="Self.FK_House_Realtor">
+      <End Role="Realtor" EntitySet="Realtors" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Sewerage" Association="Self.FK_House_Sewerage">
+      <End Role="Sewerage" EntitySet="Sewerages" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_Type1" Association="Self.FK_House_Type1">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_House_WaterSupply" Association="Self.FK_House_WaterSupply">
+      <End Role="WaterSupply" EntitySet="WaterSupplies" />
+      <End Role="House" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Realtor_User" Association="Self.FK_Realtor_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Realtor" EntitySet="Realtors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Levels" EntityType="RealtProModel.Level" />
+    <EntitySet Name="Moneys" EntityType="RealtProModel.Money" />
+    <EntitySet Name="Offices" EntityType="RealtProModel.Office" />
+    <AssociationSet Name="FK_Client_Money" Association="RealtProModel.FK_Client_Money">
+      <End Role="Money" EntitySet="Moneys" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_ObjectStatus" Association="RealtProModel.FK_Client_ObjectStatus">
+      <End Role="ObjectStatu" EntitySet="ObjectStatus" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Realtor" Association="RealtProModel.FK_Client_Realtor">
+      <End Role="Realtor" EntitySet="Realtors" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Type" Association="RealtProModel.FK_Client_Type">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Realtor_Level" Association="RealtProModel.FK_Realtor_Level">
+      <End Role="Level" EntitySet="Levels" />
+      <End Role="Realtor" EntitySet="Realtors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Realtor_Office" Association="RealtProModel.FK_Realtor_Office">
+      <End Role="Office" EntitySet="Offices" />
+      <End Role="Realtor" EntitySet="Realtors" />
+    </AssociationSet>
+    <EntitySet Name="Balconies" EntityType="RealtProModel.Balcony" />
+    <AssociationSet Name="FK_Apartment_Balcony" Association="RealtProModel.FK_Apartment_Balcony">
+      <End Role="Balcony" EntitySet="Balconies" />
+      <End Role="Apartment" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Office_HeadOfSalesDepartment" Association="RealtProModel.FK_Office_HeadOfSalesDepartment">
+      <End Role="HeadOfSalesDepartment" EntitySet="HeadOfSalesDepartments" />
+      <End Role="Office" EntitySet="Offices" />
+    </AssociationSet>
+    <EntitySet Name="Activates" EntityType="RealtProModel.Activate" />
+    <AssociationSet Name="FK_User_Activate" Association="RealtProModel.FK_User_Activate">
+      <End Role="Activate" EntitySet="Activates" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CommissionPercentage" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Realtors" Relationship="RealtProModel.FK_Realtor_Level" FromRole="Level" ToRole="Realtor" />
+  </EntityType>
+  <EntityType Name="Money">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clients" Relationship="RealtProModel.FK_Client_Money" FromRole="Money" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfRealtors" Type="Int32" Nullable="false" />
+    <Property Name="HeadOfSalesDepartmentId" Type="Int32" />
+    <NavigationProperty Name="Realtors" Relationship="RealtProModel.FK_Realtor_Office" FromRole="Office" ToRole="Realtor" />
+    <NavigationProperty Name="HeadOfSalesDepartment" Relationship="RealtProModel.FK_Office_HeadOfSalesDepartment" FromRole="Office" ToRole="HeadOfSalesDepartment" />
+  </EntityType>
+  <Association Name="FK_Client_Money">
+    <End Type="RealtProModel.Money" Role="Money" Multiplicity="1" />
+    <End Type="RealtProModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Money">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="MoneyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_ObjectStatus">
+    <End Type="RealtProModel.ObjectStatu" Role="ObjectStatu" Multiplicity="1" />
+    <End Type="RealtProModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="ObjectStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Realtor">
+    <End Type="RealtProModel.Realtor" Role="Realtor" Multiplicity="1" />
+    <End Type="RealtProModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Realtor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="RealtorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Type">
+    <End Type="RealtProModel.Type" Role="Type" Multiplicity="1" />
+    <End Type="RealtProModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Realtor_Level">
+    <End Type="RealtProModel.Level" Role="Level" Multiplicity="1" />
+    <End Type="RealtProModel.Realtor" Role="Realtor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Level">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Realtor">
+        <PropertyRef Name="LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Realtor_Office">
+    <End Type="RealtProModel.Office" Role="Office" Multiplicity="1" />
+    <End Type="RealtProModel.Realtor" Role="Realtor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Realtor">
+        <PropertyRef Name="OfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Balcony">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Apartments" Relationship="RealtProModel.FK_Apartment_Balcony" FromRole="Balcony" ToRole="Apartment" />
+  </EntityType>
+  <Association Name="FK_Apartment_Balcony">
+    <End Type="RealtProModel.Balcony" Role="Balcony" Multiplicity="1" />
+    <End Type="RealtProModel.Apartment" Role="Apartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Balcony">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apartment">
+        <PropertyRef Name="BalconyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Office_HeadOfSalesDepartment">
+    <End Type="RealtProModel.HeadOfSalesDepartment" Role="HeadOfSalesDepartment" Multiplicity="0..1" />
+    <End Type="RealtProModel.Office" Role="Office" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadOfSalesDepartment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Office">
+        <PropertyRef Name="HeadOfSalesDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Activate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="RealtProModel.FK_User_Activate" FromRole="Activate" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_User_Activate">
+    <End Type="RealtProModel.Activate" Role="Activate" Multiplicity="1" />
+    <End Type="RealtProModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ActivateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -50,30 +50,36 @@ namespace RealtProWpfApp.UI
                 tbPassword.BorderBrush = Brushes.Red;
             }
             else tbPassword.BorderBrush = Brushes.Gray;
-            if (ClassLibraryPasswordValidation.PasswordCheck.CheckPassword(_currentUser.Password))
+            if (!string.IsNullOrWhiteSpace(_currentUser.Password))
             {
-                errors.AppendLine("Пароль не соответствует требованиям корректности: длина от 6 до 50 символов, состав только из букв + цифр");
-                tbPassword.BorderBrush = Brushes.Red;
+                if (ClassLibraryPasswordValidation.PasswordCheck.CheckPassword(_currentUser.Password) == false)
+                {
+                    errors.AppendLine("Пароль не соответствует требованиям корректности: длина от 6 до 50 символов, состав только из букв + цифр");
+                    tbPassword.BorderBrush = Brushes.Red;
+                }
+                else tbPassword.BorderBrush = Brushes.Gray;
             }
-            else tbPassword.BorderBrush = Brushes.Gray;
-            if (_currentUser.Login.Length < 6 || _currentUser.Login.Length > 50)
+            if (!string.IsNullOrWhiteSpace(_currentUser.Login))
             {
-                errors.AppendLine("Длина логина должна быть от 6 до 50 символов");
-                tbLogin.BorderBrush = Brushes.Red;
-            }
-            else tbLogin.BorderBrush = Brushes.Gray;
-            if (!_currentUser.Login.Any(Char.IsLetter))
-            {
-                errors.AppendLine("В логине должны быть буквы");
-                tbLogin.BorderBrush = Brushes.Red;
-            }
-            else tbLogin.BorderBrush = Brushes.Gray;
-            if (_currentUser.Login.Intersect("#$%^&_№:").Count() > 0)
-            {
-                errors.AppendLine("Введите логин только при помощи букв (символы: #$%^&_№: не допустимы)");
-                tbLogin.BorderBrush = Brushes.Red;
-            }
-            else tbLogin.BorderBrush = Brushes.Gray;
+                if (_currentUser.Login.Length < 6 || _currentUser.Login.Length > 50)
+                {
+                    errors.AppendLine("Длина логина должна быть от 6 до 50 символов");
+                    tbLogin.BorderBrush = Brushes.Red;
+                }
+                else tbLogin.BorderBrush = Brushes.Gray;
+                if (!_currentUser.Login.Any(Char.IsLetter))
+                {
+                    errors.AppendLine("В логине должны быть буквы");
+                    tbLogin.BorderBrush = Brushes.Red;
+                }
+                else tbLogin.BorderBrush = Brushes.Gray;
+                if (_currentUser.Login.Intersect("#$%^&_№:").Count() > 0)
+                {
+                    errors.AppendLine("Введите логин только при помощи букв (символы: #$%^&_№: не допустимы)");
+                    tbLogin.BorderBrush = Brushes.Red;
+                }
+                else tbLogin.BorderBrush = Brushes.Gray;
+            }                     
             if (_currentUser.Role == null)
             {
                 errors.AppendLine("Укажите роль");

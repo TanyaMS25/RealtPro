@@ -15,20 +15,27 @@ namespace ClassLibraryPasswordValidation
         /// <returns></returns>
         public static bool CheckPassword(string pass)
         {
-            if (pass.Length < 6 || pass.Length > 50)
-                return false;
-            if (!pass.Any(Char.IsDigit))
-                return false;
-            if (!pass.Any(Char.IsLetter))
-                return false;
-            if (pass.All(Char.IsDigit))
-                return false;
-            if (pass.All(Char.IsLetter))
-                return false;
-            if (pass.Intersect("#$%^&_№:").Count() > 0)
-                return false;
+            if(pass != null)
+            {
+                if (pass.Length < 6 || pass.Length > 50)
+                    return false;
+                if (!pass.Any(Char.IsDigit))
+                    return false;
+                if (!pass.Any(Char.IsLetter))
+                    return false;
+                if (pass.All(Char.IsDigit))
+                    return false;
+                if (pass.All(Char.IsLetter))
+                    return false;
+                if (pass.Intersect("#$%^&_№:").Count() > 0)
+                    return false;
 
-            return true;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

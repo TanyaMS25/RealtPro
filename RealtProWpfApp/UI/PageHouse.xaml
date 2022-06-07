@@ -31,6 +31,11 @@
                           DisplayMemberPath="Name"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите статус:"></TextBlock>
+                <ComboBox Name="comboStatus" SelectionChanged="comboStatus_SelectionChanged"
+                          DisplayMemberPath="Name"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Выберите район:"></TextBlock>
                 <ComboBox Name="comboDistrict" SelectionChanged="comboDistrict_SelectionChanged"
                           DisplayMemberPath="District"></ComboBox>

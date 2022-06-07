@@ -45,10 +45,17 @@ namespace RealtProWpfApp.UI
             });
             comboRealtor.ItemsSource = allRealtors;
 
+            var allStatus = App.DateBase.ObjectStatus.ToList();
+            allStatus.Insert(0, new Entities.ObjectStatu
+            {
+                Name = "Все статусы"
+            });
+            comboStatus.ItemsSource = allStatus;
+
             comboRealtor.SelectedIndex = 0;
             comboDistrict.SelectedIndex = 0;
             comboType.SelectedIndex = 0;
-
+            comboStatus.SelectedIndex = 0;
         }
 
         private void UpdateHouse()
@@ -60,6 +67,9 @@ namespace RealtProWpfApp.UI
 
             if (comboRealtor.SelectedIndex > 0)
                 currentHouse = currentHouse.Where(p => p.Realtor.FullName.Contains((comboRealtor.SelectedItem as Entities.Realtor).FullName)).ToList();
+
+            if (comboStatus.SelectedIndex > 0)
+                currentHouse = currentHouse.Where(p => p.ObjectStatu.Name.Contains((comboStatus.SelectedItem as Entities.ObjectStatu).Name)).ToList();
 
             if (!string.IsNullOrEmpty(tbSearch.Text))
             {
@@ -211,6 +221,11 @@ namespace RealtProWpfApp.UI
         }
 
         private void checkComiss_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateHouse();
+        }
+
+        private void comboStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateHouse();
         }

@@ -25,9 +25,11 @@
         <Frame Name="MainFrame" Grid.Column="1" Grid.Row="1" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
         
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+            <Button Name="btnMainHead" Click="btnMainHead_Click" Visibility="Hidden">Главная</Button>
             <Button Name="btnPrintApartHeadDep" Click="btnPrintApartHeadDep_Click" Visibility="Hidden">Отчет квартир</Button>
             <Button Name="btnPrintHouseHeadDep" Click="btnPrintHouseHeadDep_Click" Visibility="Hidden">Отчет домов</Button>
 
+            <Button Name="btnMainAdmin" Click="btnMainAdmin_Click" Visibility="Hidden">Главная</Button>
             <Button Name="btnAuthHistory" Click="btnAuthHistory_Click" Visibility="Hidden">История авторизации</Button>
 
             <Button Name="btnMainRealtor" Click="btnMainRealtor_Click" Visibility="Hidden">Главная</Button>

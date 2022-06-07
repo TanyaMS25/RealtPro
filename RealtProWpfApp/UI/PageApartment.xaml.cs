@@ -45,9 +45,17 @@ namespace RealtProWpfApp.UI
             });
             comboRealtor.ItemsSource = allRealtors;
 
+            var allStatus = App.DateBase.ObjectStatus.ToList();
+            allStatus.Insert(0, new Entities.ObjectStatu
+            {
+                Name = "Все статусы"
+            });
+            comboStatus.ItemsSource = allStatus;
+
             comboRealtor.SelectedIndex = 0;
             comboDistrict.SelectedIndex = 0;
             comboType.SelectedIndex = 0;
+            comboStatus.SelectedIndex = 0;
         }
         private void UpdateApartment()
         {
@@ -55,6 +63,8 @@ namespace RealtProWpfApp.UI
 
             if (comboType.SelectedIndex > 0)
                 currentApart = currentApart.Where(p => p.Type.Name.Contains((comboType.SelectedItem as Entities.Type).Name)).ToList();
+            if (comboStatus.SelectedIndex > 0)
+                currentApart = currentApart.Where(p => p.ObjectStatu.Name.Contains((comboStatus.SelectedItem as Entities.ObjectStatu).Name)).ToList();
 
             if (!string.IsNullOrEmpty(tbSearch.Text))
             {
@@ -193,6 +203,11 @@ namespace RealtProWpfApp.UI
         }
 
         private void comboRealtor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateApartment();
+        }
+
+        private void comboStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateApartment();
         }

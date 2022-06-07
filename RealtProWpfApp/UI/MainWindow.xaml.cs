@@ -62,6 +62,7 @@ namespace RealtProWpfApp
                     if (Models.Manager.user.Role.Name == "admin")
                     {
                         btnAuthHistory.Visibility = Visibility.Visible;
+                        btnMainAdmin.Visibility = Visibility.Visible;
 
                         btnApartment.Visibility = Visibility.Hidden;
                         btnPrintApartment.Visibility = Visibility.Hidden;
@@ -73,6 +74,7 @@ namespace RealtProWpfApp
 
                         btnPrintApartHeadDep.Visibility = Visibility.Hidden;
                         btnPrintHouseHeadDep.Visibility = Visibility.Hidden;
+                        btnMainHead.Visibility = Visibility.Hidden;
 
                         btnUserData.Visibility = Visibility.Hidden;
                     }
@@ -88,9 +90,11 @@ namespace RealtProWpfApp
                         btnMainRealtor.Visibility = Visibility.Visible;
 
                         btnAuthHistory.Visibility = Visibility.Hidden;
+                        btnMainAdmin.Visibility = Visibility.Hidden;
 
                         btnPrintApartHeadDep.Visibility = Visibility.Hidden;
                         btnPrintHouseHeadDep.Visibility = Visibility.Hidden;
+                        btnMainHead.Visibility = Visibility.Hidden;
 
                         btnUserData.Visibility = Visibility.Visible;
                     }
@@ -98,6 +102,7 @@ namespace RealtProWpfApp
                     {
 
                         btnAuthHistory.Visibility = Visibility.Hidden;
+                        btnMainAdmin.Visibility = Visibility.Hidden;
 
                         btnApartment.Visibility = Visibility.Hidden;
                         btnPrintApartment.Visibility = Visibility.Hidden;
@@ -109,6 +114,7 @@ namespace RealtProWpfApp
 
                         btnPrintApartHeadDep.Visibility = Visibility.Visible;
                         btnPrintHouseHeadDep.Visibility = Visibility.Visible;
+                        btnMainHead.Visibility = Visibility.Visible;
 
                         btnUserData.Visibility = Visibility.Visible;
                     }
@@ -130,7 +136,14 @@ namespace RealtProWpfApp
                 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Models.Manager.MainFrame.GoBack();
+            try
+            {
+                Models.Manager.MainFrame.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -181,6 +194,16 @@ namespace RealtProWpfApp
         private void btnUserData_Click(object sender, RoutedEventArgs e)
         {
             Models.Manager.MainFrame.Navigate(new UI.PageUserData(Models.Manager.user));
+        }
+
+        private void btnMainAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            Models.Manager.MainFrame.Navigate(new UI.PageAdmin());
+        }
+
+        private void btnMainHead_Click(object sender, RoutedEventArgs e)
+        {
+            Models.Manager.MainFrame.Navigate(new UI.PageHeadOfSalesDepartment());
         }
     }
 }
